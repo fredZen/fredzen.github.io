@@ -3,7 +3,7 @@ cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null
 DIR=$(pwd)
 
 export HOST=${HOST:-$DIR}
-. .env
+eval $(grep '^COMPOSE_PROJECT_NAME=' .env)
 
 docker-compose up -d
 docker exec -ti "${COMPOSE_PROJECT_NAME}_shell_1" /bin/bash
