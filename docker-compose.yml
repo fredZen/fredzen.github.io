@@ -3,13 +3,15 @@ services:
   shell:
     build: https://github.com/fredZen/dev-env.git
     volumes:
-     - .:/root
+     - ${HOST}:/root
      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+     - HOST
     tty: true
   jekyll:
     image: madduci/docker-github-pages:3.4
     volumes:
-     - .:/site
+     - ${HOST}:/site
     command: ['serve', '--watch', '--force_polling', '--host', '0.0.0.0', '--drafts']
     ports:
      - "4000:4000"

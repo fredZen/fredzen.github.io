@@ -1,6 +1,12 @@
 @echo off
-setlocal
+setlocal enableDelayedExpansion
 cd %~dp0
+set DIR=%~dp0
+
+if not defined HOST (
+	for /f "tokens=1,2 delims=:" %%i in ("%DIR%") do set HOST=//%%i%%j
+	set HOST=!HOST:\=/!
+)
 
 for /f "tokens=1,2 delims==" %%i in (.env) do (
 	if %%i == COMPOSE_PROJECT_NAME set COMPOSE_PROJECT_NAME=%%j
