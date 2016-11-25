@@ -1,5 +1,9 @@
 * text=auto
-
-*.bat text eol=crlf
+dev-env text eol=lf
+dock text eol=lf
 *.sh text eol=lf
-.env text eol=lf
+*.bat text eol=crlf
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.png binary

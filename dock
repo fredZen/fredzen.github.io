@@ -1,0 +1,7 @@
+#!/bin/bash
+cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null
+DIR=$(pwd)
+
+export HOST=${HOST:-$DIR}
+
+docker-compose "$@"
