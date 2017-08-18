@@ -9,7 +9,7 @@ services:
      - HOST
     tty: true
   jekyll:
-    image: madduci/docker-github-pages:3.4
+    image: madduci/docker-github-pages:3.5
     volumes:
      - ${HOST}:/site
     command: ['serve', '--watch', '--force_polling', '--host', '0.0.0.0', '--drafts']
